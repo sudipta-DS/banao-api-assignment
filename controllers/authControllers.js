@@ -42,7 +42,13 @@ const loginController = async (req, res) => {
       if (isCorrectPassword) {
         jwt.sign({ email: email }, "banao-assignment", (error, token) => {
           if (!error) {
-            res.status(201).send({ message: "login successful", token: token });
+            res
+              .status(201)
+              .send({
+                message: "login successful",
+                token: token,
+                id: existingUser._id,
+              });
           } else {
             console.log(error);
           }
