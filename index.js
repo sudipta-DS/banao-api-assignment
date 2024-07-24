@@ -13,8 +13,8 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
-app.use("/api/v2/auth", authRouter);
-app.use("/api/v2/posts", verifyToken, postRouter);
+app.use("/api/v3/auth", authRouter);
+app.use("/api/v3/posts", verifyToken, postRouter);
 
 mongoose
   .connect(process.env.MONGODB_URI)
